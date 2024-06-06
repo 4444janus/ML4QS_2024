@@ -17,9 +17,11 @@ import os
 import sys
 
 # Chapter 2: Initial exploration of the dataset.
-label = 'bike'
-csvname = 'fietsen'
-DATASET_PATH = Path(f'./datasets/own_data/{csvname}_10hz/')
+label = 'bike' # car, bike, walk, tram
+foldername = 'fietsen' #auto, fietsen, lopen, tram
+version = '10hz' # 10hz, 10hz_v2, 10hz_v3
+name_result = f'{label}_{foldername}_{version}'
+DATASET_PATH = Path(f'./datasets/own_data/{foldername}_{version}/')
 RESULT_PATH = Path('./intermediate_datafiles/')
 RESULT_FNAME = f'{label}_result.csv'
 
@@ -83,12 +85,12 @@ for milliseconds_per_instance in GRANULARITIES:
 
     # Boxplot
 
-    DataViz.plot_dataset_boxplot(dataset, [f'acc_{label}_x', f'acc_{label}_y', f'acc_{label}_z', f'gyr_{label}_x', f'gyr_{label}_y', f'gyr_{label}_z'])
+    DataViz.plot_dataset_boxplot(dataset, [f'acc_{label}_x', f'acc_{label}_y', f'acc_{label}_z', f'gyr_{label}_x', f'gyr_{label}_y', f'gyr_{label}_z'], name_file=name_result+'_'+str(milliseconds_per_instance))
 
     # Plot all data
     DataViz.plot_dataset(dataset, [f'acc_{label}_x', f'acc_{label}_y', f'acc_{label}_z', f'gyr_{label}_x', f'gyr_{label}_y', f'gyr_{label}_z'],
                                   ['like', 'like', 'like', 'like', 'like', 'like', 'like'],
-                                  ['line', 'line', 'line', 'line', 'line', 'line', 'line'])
+                                  ['line', 'line', 'line', 'line', 'line', 'line', 'line'], name_file=name_result+'_'+str(milliseconds_per_instance))
 
     # And print a summary of the dataset.
     util.print_statistics(dataset)

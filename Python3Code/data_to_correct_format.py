@@ -26,8 +26,8 @@ def change_dataset(location='datasets/own_data/auto_10hz_v3', dataset='Accelerom
     # print(data.info())
 
     #add the labels
-    data['label'] = 'auto'
-    data['sensor_type'] = 'accelerometer'
+    data['label'] = label
+    data['sensor_type'] = sensor_type
     data['device_type'] = 'smartphone'
 
     #make float
@@ -47,8 +47,8 @@ def change_dataset(location='datasets/own_data/auto_10hz_v3', dataset='Accelerom
 change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='car', location='datasets/own_data/auto_10hz')
 change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='car', location='datasets/own_data/auto_10hz')
 #auto2
-change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='car', location='datasets/own_data/auto_10hz_2')
-change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='car', location='datasets/own_data/auto_10hz_2')
+change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='car', location='datasets/own_data/auto_10hz_v2')
+change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='car', location='datasets/own_data/auto_10hz_v2')
 #auto3
 change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='car', location='datasets/own_data/auto_10hz_v3')
 change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='car', location='datasets/own_data/auto_10hz_v3')
@@ -57,7 +57,13 @@ change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='
 change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='bike', location='datasets/own_data/fietsen_10hz')
 #lopen1
 change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='walk', location='datasets/own_data/lopen_10hz_v1')
-change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='walk', location='datasets/own_data/lopen_10hz_v2')
+change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='walk', location='datasets/own_data/lopen_10hz_v1')
 #lopen2
 change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='walk', location='datasets/own_data/lopen_10hz_v2')
 change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='walk', location='datasets/own_data/lopen_10hz_v2')
+#lopen3
+change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='walk', location='datasets/own_data/lopen_10hz_v3')
+change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='walk', location='datasets/own_data/lopen_10hz_v3')
+#tram
+change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='tram', location='datasets/own_data/tram_10hz_v1')
+change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='tram', location='datasets/own_data/tram_10hz_v1')
