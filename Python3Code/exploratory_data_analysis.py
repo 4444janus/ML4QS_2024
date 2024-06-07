@@ -16,9 +16,13 @@ import copy
 import os
 import sys
 
+# label = ['car', 'car', 'car', 'bike', 'walk', 'walk', 'walk', 'tram']
+# foldername = ['auto_10hz', 'auto_10hz_v2', 'auto_10hz_v3', 'fietsen_10hz',
+#               'lopen_10hz_v1', 'lopen_10hz_v2', 'lopen_10hz_v3', 'tram_10hz_v1']
+
 # Chapter 2: Initial exploration of the dataset.
 label = 'bike' # car, bike, walk, tram
-foldername = 'fietsen' #auto, fietsen, lopen, tram
+foldername = 'fietsen' #['fietsen', 'auto', 'fietsen', 'lopen', 'tram']
 version = '10hz' # 10hz, 10hz_v2, 10hz_v3
 name_result = f'{label}_{foldername}_{version}'
 DATASET_PATH = Path(f'./datasets/own_data/{foldername}_{version}/')

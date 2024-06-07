@@ -109,7 +109,9 @@ class VisualizeDataset:
 
         # Make sure we get a nice figure with only a single x-axis and labels there.
         plt.setp([a.get_xticklabels() for a in f.axes[:-1]], visible=False)
+        # x-axis should have values of time
         plt.xlabel('time')
+        plt.xticks(rotation=45)
         self.save(plt, name_file)
         plt.show()
 
@@ -158,11 +160,17 @@ class VisualizeDataset:
         data_table.loc[:,:] = data_table.dropna(axis=0, subset=[col, outlier_col])
         data_table.loc[:,outlier_col] = data_table[outlier_col].astype('bool')
         f, xar = plt.subplots()
+
         xfmt = md.DateFormatter('%H:%M')
+        print(f"hier({xfmt}")
         xar.xaxis.set_major_formatter(xfmt)
+        # on x-axis, only put the time ticks per 10 minutes
+        xar.xaxis.set_major_locator(md.MinuteLocator(interval=5))
         plt.xlabel('time')
         plt.ylabel('value')
+        print(data_table['timestamps'])
         # Plot data points that are outliers in red, and non outliers in blue.
+        # Take column "timestamps" from data_table as x-axis and column "col" from data_table as y-axis
         xar.plot(data_table.index[data_table[outlier_col]], data_table[col][data_table[outlier_col]], 'r+')
         xar.plot(data_table.index[~data_table[outlier_col]], data_table[col][~data_table[outlier_col]], 'b+')
         plt.legend(['outlier ' + col, 'no_outlier_' + col], numpoints=1, fontsize='xx-small', loc='upper center',  ncol=2, fancybox=True, shadow=True)
