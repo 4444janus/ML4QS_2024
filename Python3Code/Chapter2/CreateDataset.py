@@ -48,7 +48,7 @@ class CreateDataset:
         print(f'Reading data from {file}')
         dataset = pd.read_csv(self.base_dir / file, skipinitialspace=True)
         # Convert timestamps to dates
-        dataset[timestamp_col] = pd.to_datetime(dataset[timestamp_col], unit='s')
+        dataset[timestamp_col] = pd.to_datetime(dataset[timestamp_col])
         # dataset[timestamp_col] = pd.to_datetime(dataset[timestamp_col])
         # print(dataset.to_string())
 

@@ -17,12 +17,12 @@ def change_dataset(location='datasets/own_data/auto_10hz_v3', dataset='Accelerom
     print(data['timestamps'])
     # print(data.to_string())
     #add unix time to time
-    data['timestamps'] = (data['timestamps'] + int(timestamp))
+    # data['timestamps'] = (data['timestamps'] + int(timestamp))
     print(data['timestamps'])
-    data['datetime'] = pd.to_datetime(data['timestamps'], unit='s')
-    data.drop(['timestamps'], axis=1, inplace=True)
-    data['timestamps'] = data['datetime'].astype('int64') // 10**9
-    data.drop(['datetime'], axis=1, inplace=True)
+    # data['datetime'] = pd.to_datetime(data['timestamps'], unit='s')
+    # data.drop(['timestamps'], axis=1, inplace=True)
+    # data['timestamps'] = data['datetime'].astype('int64') // 10**9
+    # data.drop(['datetime'], axis=1, inplace=True)
     # print(data.info())
 
     #add the labels
@@ -40,6 +40,17 @@ def change_dataset(location='datasets/own_data/auto_10hz_v3', dataset='Accelerom
     # print(data.to_string())
     print(data.head())
     return data
+
+def make_labels_file(dataset='combined_accelerometer.csv', location='datasets/own_data'):
+    #sensor_type,device_type,label,label_start,label_start_datetime,label_end,label_end_datetime
+    print('make labels file')
+    data = pd.read_csv(location + '/' + dataset)
+    print(data.head())
+    #add label_start and label_end of labels
+
+    # data['label_start'] = data['timestamps']
+make_labels_file()
+
 
 
 # change_dataset()

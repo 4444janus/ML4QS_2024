@@ -50,7 +50,7 @@ def main():
     # Step 1: Let us see whether we have some outliers we would prefer to remove.
 
     # Determine the columns we want to experiment on.
-    outlier_columns = ['acc_phone_x', 'light_phone_lux']
+    outlier_columns = ['acc_x', 'acc_y', 'acc_z', 'gyr_x', 'gyr_y', 'gyr_z']
     # Create the outlier classes.
     OutlierDistr = DistributionBasedOutlierDetection()
     OutlierDist = DistanceBasedOutlierDetection()
@@ -67,7 +67,7 @@ def main():
             # of the parameter values for each of the approaches by visual inspection.
             dataset = OutlierDistr.chauvenet(dataset, col, FLAGS.C)
             DataViz.plot_binary_outliers(
-                dataset, col, col + '_outlier')
+                dataset, col, col + '_outlier', name_file='chauvenet_outliers_' + col)
 
     elif FLAGS.mode == 'mixture':
 
@@ -122,7 +122,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
 
-    parser.add_argument('--mode', type=str, default='final',
+    parser.add_argument('--mode', type=str, default='distance',
                         help="Select what version to run: LOF, distance, mixture, chauvenet or final \
                         'LOF' applies the Local Outlier Factor to a single variable \
                         'distance' applies a distance based outlier detection method to a single variable \
