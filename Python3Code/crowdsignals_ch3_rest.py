@@ -51,6 +51,7 @@ def main():
     DataViz = VisualizeDataset(__file__)
 
     # Compute the number of milliseconds covered by an instance based on the first two rows
+
     milliseconds_per_instance = (
         dataset.index[1] - dataset.index[0]).microseconds/1000
 
@@ -139,9 +140,7 @@ def main():
             dataset = MisVal.impute_interpolate(dataset, col)
 
         # And now let us include all LOWPASS measurements that have a form of periodicity (and filter them):
-        periodic_measurements = ['acc_phone_x', 'acc_phone_y', 'acc_phone_z', 'acc_watch_x', 'acc_watch_y', 'acc_watch_z', 'gyr_phone_x', 'gyr_phone_y',
-                                 'gyr_phone_z', 'gyr_watch_x', 'gyr_watch_y', 'gyr_watch_z', 'mag_phone_x', 'mag_phone_y', 'mag_phone_z', 'mag_watch_x',
-                                 'mag_watch_y', 'mag_watch_z']
+        periodic_measurements = ['acc_x', 'acc_y', 'acc_z', 'gyr_x', 'gyr_y', 'gyr_z']
 
         
         # Let us apply a lowpass filter and reduce the importance of the data above 1.5 Hz
@@ -160,12 +159,15 @@ def main():
        
         selected_predictor_cols = [c for c in dataset.columns if (not ('label' in c)) and (not (c == 'hr_watch_rate'))]
         
-        n_pcs = 7
-        
+        n_pcs = 6
+
+        print('selected_predictor_cols: ', selected_predictor_cols)
+        print('n_pcs: ', n_pcs)
+
         dataset = PCA.apply_pca(copy.deepcopy(dataset), selected_predictor_cols, n_pcs)
 
         # And the overall final dataset:
-        DataViz.plot_dataset(dataset, ['acc_', 'gyr_', 'hr_watch_rate', 'light_phone_lux', 'mag_', 'press_phone_', 'pca_', 'label'],
+        DataViz.plot_dataset(dataset, ['acc_', 'gyr_', 'pca_', 'label'],
                              ['like', 'like', 'like', 'like', 'like',
                                  'like', 'like', 'like', 'like'],
                              ['line', 'line', 'line', 'line', 'line', 'line', 'line', 'points', 'points'])
