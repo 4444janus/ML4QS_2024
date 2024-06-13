@@ -7,23 +7,37 @@ from util.VisualizeDataset import VisualizeDataset
 # De tijd bij elkaar optellen, dus voor de 2e heb je de huidige tijd per datapunt + eind tijd van 1e
 
 def get_combined_data():
-    data_1 = pd.read_csv('datasets/own_data/auto_10hz/formatted_car_accelerometer.csv')
-    data_3 = pd.read_csv('datasets/own_data/auto_10hz_v2/formatted_car_accelerometer.csv')
-    data_7 = pd.read_csv('datasets/own_data/auto_10hz_v3/formatted_car_accelerometer.csv')
-    data_2 = pd.read_csv('datasets/own_data/fietsen_10hz/formatted_bike_accelerometer.csv')
-    data_5 = pd.read_csv('datasets/own_data/lopen_10hz_v1/formatted_walk_accelerometer.csv')
-    data_8 = pd.read_csv('datasets/own_data/lopen_10hz_v2/formatted_walk_accelerometer.csv')
-    data_6 = pd.read_csv('datasets/own_data/lopen_10hz_v3/formatted_walk_accelerometer.csv')
+    data_14 = pd.read_csv('datasets/own_data/auto_10hz/formatted_car_accelerometer.csv')
+    data_10 = pd.read_csv('datasets/own_data/auto_10hz_v2/formatted_car_accelerometer.csv')
+    data_6 = pd.read_csv('datasets/own_data/auto_10hz_v3/formatted_car_accelerometer.csv')
+    data_9 = pd.read_csv('datasets/own_data/fietsen_10hz/formatted_bike_accelerometer.csv')
+    data_12 = pd.read_csv('datasets/own_data/lopen_10hz_v1/formatted_walk_accelerometer.csv')
+    data_3 = pd.read_csv('datasets/own_data/lopen_10hz_v2/formatted_walk_accelerometer.csv')
+    data_7 = pd.read_csv('datasets/own_data/lopen_10hz_v3/formatted_walk_accelerometer.csv')
     data_4 = pd.read_csv('datasets/own_data/tram_10hz_v1/formatted_tram_accelerometer.csv')
+    data_2 = pd.read_csv('datasets/own_data/tram_10hz_v2/formatted_tram_accelerometer.csv')
+    data_8 = pd.read_csv('datasets/own_data/tram_10hz_v3/formatted_tram_accelerometer.csv')
+    data_11 = pd.read_csv('datasets/own_data/tram_10hz_v4/formatted_tram_accelerometer.csv')
+    data_5 = pd.read_csv('datasets/own_data/fietsen_10hz_v2/formatted_bike_accelerometer.csv')
+    data_13 = pd.read_csv('datasets/own_data/fietsen_10hz_v3/formatted_bike_accelerometer.csv')
+    data_1 = pd.read_csv('datasets/own_data/fietsen_10hz_v4/formatted_bike_accelerometer.csv')
 
-    data_gyro_1 = pd.read_csv('datasets/own_data/auto_10hz/formatted_car_gyroscope.csv')
-    data_gyro_3 = pd.read_csv('datasets/own_data/auto_10hz_v2/formatted_car_gyroscope.csv')
-    data_gyro_7 = pd.read_csv('datasets/own_data/auto_10hz_v3/formatted_car_gyroscope.csv')
-    data_gyro_2 = pd.read_csv('datasets/own_data/fietsen_10hz/formatted_bike_gyroscope.csv')
-    data_gyro_5 = pd.read_csv('datasets/own_data/lopen_10hz_v1/formatted_walk_gyroscope.csv')
-    data_gyro_8 = pd.read_csv('datasets/own_data/lopen_10hz_v2/formatted_walk_gyroscope.csv')
-    data_gyro_6 = pd.read_csv('datasets/own_data/lopen_10hz_v3/formatted_walk_gyroscope.csv')
+
+    data_gyro_14 = pd.read_csv('datasets/own_data/auto_10hz/formatted_car_gyroscope.csv')
+    data_gyro_10 = pd.read_csv('datasets/own_data/auto_10hz_v2/formatted_car_gyroscope.csv')
+    data_gyro_6 = pd.read_csv('datasets/own_data/auto_10hz_v3/formatted_car_gyroscope.csv')
+    data_gyro_9 = pd.read_csv('datasets/own_data/fietsen_10hz/formatted_bike_gyroscope.csv')
+    data_gyro_12 = pd.read_csv('datasets/own_data/lopen_10hz_v1/formatted_walk_gyroscope.csv')
+    data_gyro_3 = pd.read_csv('datasets/own_data/lopen_10hz_v2/formatted_walk_gyroscope.csv')
+    data_gyro_7 = pd.read_csv('datasets/own_data/lopen_10hz_v3/formatted_walk_gyroscope.csv')
     data_gyro_4 = pd.read_csv('datasets/own_data/tram_10hz_v1/formatted_tram_gyroscope.csv')
+    data_gyro_2 = pd.read_csv('datasets/own_data/tram_10hz_v2/formatted_tram_gyroscope.csv')
+    data_gyro_8 = pd.read_csv('datasets/own_data/tram_10hz_v3/formatted_tram_gyroscope.csv')
+    data_gyro_11 = pd.read_csv('datasets/own_data/tram_10hz_v4/formatted_tram_gyroscope.csv')
+    data_gyro_5 = pd.read_csv('datasets/own_data/fietsen_10hz_v2/formatted_bike_gyroscope.csv')
+    data_gyro_13 = pd.read_csv('datasets/own_data/fietsen_10hz_v3/formatted_bike_gyroscope.csv')
+    data_gyro_1 = pd.read_csv('datasets/own_data/fietsen_10hz_v4/formatted_bike_gyroscope.csv')
+
 
     # dt = datetime(2024, 6, 5, 0, 0, 0, tzinfo=timezone.utc)
     # timestamp = dt.timestamp()
@@ -38,6 +52,13 @@ def get_combined_data():
     data_6['timestamps'] = data_6['timestamps'] + data_5['timestamps'].iloc[-1]
     data_7['timestamps'] = data_7['timestamps'] + data_6['timestamps'].iloc[-1]
     data_8['timestamps'] = data_8['timestamps'] + data_7['timestamps'].iloc[-1]
+    data_9['timestamps'] = data_9['timestamps'] + data_8['timestamps'].iloc[-1]
+    data_10['timestamps'] = data_10['timestamps'] + data_9['timestamps'].iloc[-1]
+    data_11['timestamps'] = data_11['timestamps'] + data_10['timestamps'].iloc[-1]
+    data_12['timestamps'] = data_12['timestamps'] + data_11['timestamps'].iloc[-1]
+    data_13['timestamps'] = data_13['timestamps'] + data_12['timestamps'].iloc[-1]
+    data_14['timestamps'] = data_14['timestamps'] + data_13['timestamps'].iloc[-1]
+
 
     data_gyro_2['timestamps'] = data_gyro_2['timestamps'] + data_gyro_1['timestamps'].iloc[-1]
     data_gyro_3['timestamps'] = data_gyro_3['timestamps'] + data_gyro_2['timestamps'].iloc[-1]
@@ -46,11 +67,18 @@ def get_combined_data():
     data_gyro_6['timestamps'] = data_gyro_6['timestamps'] + data_gyro_5['timestamps'].iloc[-1]
     data_gyro_7['timestamps'] = data_gyro_7['timestamps'] + data_gyro_6['timestamps'].iloc[-1]
     data_gyro_8['timestamps'] = data_gyro_8['timestamps'] + data_gyro_7['timestamps'].iloc[-1]
+    data_gyro_9['timestamps'] = data_gyro_9['timestamps'] + data_gyro_8['timestamps'].iloc[-1]
+    data_gyro_10['timestamps'] = data_gyro_10['timestamps'] + data_gyro_9['timestamps'].iloc[-1]
+    data_gyro_11['timestamps'] = data_gyro_11['timestamps'] + data_gyro_10['timestamps'].iloc[-1]
+    data_gyro_12['timestamps'] = data_gyro_12['timestamps'] + data_gyro_11['timestamps'].iloc[-1]
+    data_gyro_13['timestamps'] = data_gyro_13['timestamps'] + data_gyro_12['timestamps'].iloc[-1]
+    data_gyro_14['timestamps'] = data_gyro_14['timestamps'] + data_gyro_13['timestamps'].iloc[-1]
+
 
 
     # Combine the data
-    data = pd.concat([data_1, data_2, data_3, data_4, data_5, data_6, data_7, data_8])
-    data_gyro = pd.concat([data_gyro_1, data_gyro_2, data_gyro_3, data_gyro_4, data_gyro_5, data_gyro_6, data_gyro_7, data_gyro_8])
+    data = pd.concat([data_1, data_2, data_3, data_4, data_5, data_6, data_7, data_8, data_9, data_10, data_11, data_12, data_13, data_14])
+    data_gyro = pd.concat([data_gyro_1, data_gyro_2, data_gyro_3, data_gyro_4, data_gyro_5, data_gyro_6, data_gyro_7, data_gyro_8, data_gyro_9, data_gyro_10, data_gyro_11, data_gyro_12, data_gyro_13, data_gyro_14])
 
     # Save the data
     data.to_csv('datasets/own_data/combined_accelerometer.csv', index=False)
@@ -94,12 +122,12 @@ def make_labels_file():
 
         # Calculate the end time of the current group
         label_end = label_start + pd.to_timedelta(group['timestamps'].iloc[-1] - group['timestamps'].iloc[0],
-                                                  unit='s')
+                                                  unit='ns')
         # Update previous_end_time for the next group
         previous_end_time = label_end
 
         # Calculate the end time of the current group
-        label_end = label_start + pd.to_timedelta(group['timestamps'].iloc[-1] - group['timestamps'].iloc[0], unit='s')
+        label_end = label_start + pd.to_timedelta(group['timestamps'].iloc[-1] - group['timestamps'].iloc[0], unit='ns')
 
         # Calculate start and end times based on the first timestamp in the group, using milliseconds
         # label_start = start_timestamp + pd.to_timedelta(group['timestamps'].iloc[0], unit='s')
@@ -307,3 +335,4 @@ def remove_noise():
 # analyze_combined_data()
 # remove_noise()
 # make_unix()
+make_labels_file()

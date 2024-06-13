@@ -95,8 +95,8 @@ def main():
         # TODO: Add your own aggregation methods here
         
         DataViz.plot_dataset(dataset, ['acc_x', 'acc_y', 'acc_z', 'gyr_x', 'gyr_y', 'gyr_z', 'pca_1', 'label'], ['like', 'like', 'like', 'like', 'like', 'like', 'like','like'], ['line', 'line', 'line', 'line', 'line', 'line', 'line', 'points'])
+        # DataViz.plot_dataset(dataset, ['acc_y_freq_0.0_Hz_ws_40', 'acc_y', 'label'], ['like', 'like', 'like'], ['line', 'line', 'points'])
 
-     
         CatAbs = CategoricalAbstraction()
         
         dataset = CatAbs.abstract_categorical(dataset, ['label'], ['like'], 0.03, int(float(5*60000)/milliseconds_per_instance), 2)
@@ -119,8 +119,12 @@ def main():
 
 
         dataset.to_csv(DATA_PATH / RESULT_FNAME)
-
-        DataViz.plot_dataset(dataset, ['acc_x', 'acc_y', 'acc_z', 'gyr_x', 'gyr_y', 'gyr_z', 'pca_1', 'label'], ['like', 'like', 'like', 'like', 'like', 'like', 'like','like', 'like'], ['line', 'line', 'line', 'line', 'line', 'line', 'line', 'points', 'points'])
+        print(type(dataset))
+        print(dataset.columns)
+        print(dataset.head())
+        # dataset = dataset['acc_y_freq_0.0_Hz_ws_40', 'acc_y', 'label']
+        # DataViz.plot_dataset(dataset, ['acc_y_freq_0.0_Hz_ws_40', 'label'], ['like', 'like'], ['line', 'points'])
+        # DataViz.plot_dataset(dataset, ['acc_x', 'acc_y', 'acc_z', 'gyr_x', 'gyr_y', 'gyr_z', 'pca_1', 'label'], ['like', 'like', 'like', 'like', 'like', 'like', 'like','like', 'like'], ['line', 'line', 'line', 'line', 'line', 'line', 'line', 'points', 'points'])
         print("--- %s seconds ---" % (time.time() - start_time))
   
 if __name__ == '__main__':

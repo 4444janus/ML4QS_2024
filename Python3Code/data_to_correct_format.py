@@ -49,7 +49,7 @@ def make_labels_file(dataset='combined_accelerometer.csv', location='datasets/ow
     #add label_start and label_end of labels
 
     # data['label_start'] = data['timestamps']
-make_labels_file()
+# make_labels_file()
 
 
 
@@ -66,6 +66,15 @@ change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='car', lo
 #fietsen
 change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='bike', location='datasets/own_data/fietsen_10hz')
 change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='bike', location='datasets/own_data/fietsen_10hz')
+#fietsen2
+change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='bike', location='datasets/own_data/fietsen_10hz_v2')
+change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='bike', location='datasets/own_data/fietsen_10hz_v2')
+#fietsen3
+change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='bike', location='datasets/own_data/fietsen_10hz_v3')
+change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='bike', location='datasets/own_data/fietsen_10hz_v3')
+#fietsen4
+change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='bike', location='datasets/own_data/fietsen_10hz_v4')
+change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='bike', location='datasets/own_data/fietsen_10hz_v4')
 #lopen1
 change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='walk', location='datasets/own_data/lopen_10hz_v1')
 change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='walk', location='datasets/own_data/lopen_10hz_v1')
@@ -78,3 +87,12 @@ change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='walk', l
 #tram
 change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='tram', location='datasets/own_data/tram_10hz_v1')
 change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='tram', location='datasets/own_data/tram_10hz_v1')
+#tram2
+change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='tram', location='datasets/own_data/tram_10hz_v2')
+change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='tram', location='datasets/own_data/tram_10hz_v2')
+#tram3
+change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='tram', location='datasets/own_data/tram_10hz_v3')
+change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='tram', location='datasets/own_data/tram_10hz_v3')
+#tram4
+change_dataset(dataset='Accelerometer.csv', sensor_type='accelerometer', label='tram', location='datasets/own_data/tram_10hz_v4')
+change_dataset(dataset='Gyroscope.csv', sensor_type='gyroscope', label='tram', location='datasets/own_data/tram_10hz_v4')
